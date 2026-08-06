@@ -1,0 +1,183 @@
+/* ============================================
+   POPEY — Booking confirmed (success) page
+   ============================================ */
+
+.success { background: var(--c-white); }
+
+/* ---- Confirmation header ---- */
+.success__head {
+  padding: 160px 0 40px;
+  text-align: center;
+}
+.success__check {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--c-teal);
+  color: var(--c-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 12px 26px rgba(59,131,122,.35);
+  animation: pop-in 700ms cubic-bezier(.16,1,.3,1) both;
+}
+.success__check svg { width: 32px; height: 32px; }
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.success__title {
+  font-family: var(--ff-display);
+  font-size: 64px;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--c-ink);
+}
+.success__sub {
+  margin-top: 16px;
+  font-size: var(--fs-15);
+  color: var(--c-ink-70);
+  max-width: 560px;
+  margin-inline: auto;
+  line-height: 1.5;
+}
+.success__sub strong { color: var(--c-ink); font-weight: 500; }
+
+
+/* ---- Summary card ---- */
+.summary-wrap {
+  padding-bottom: 40px;
+  background: linear-gradient(to bottom, var(--c-white) 0%, var(--c-white) 40%, var(--c-mist) 40%, var(--c-mist) 100%);
+}
+.summary {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: var(--c-white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.04);
+  max-width: 780px;
+  margin-inline: auto;
+}
+.summary__media {
+  overflow: hidden;
+}
+.summary__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.summary__body {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.summary__title {
+  font-family: var(--ff-display);
+  font-size: 28px;
+  color: var(--c-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.summary__loc {
+  margin: 4px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-ink-50);
+  font-size: var(--fs-13);
+}
+.summary__loc .ico { width: 14px; height: 14px; }
+
+.summary__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0;
+}
+.summary__list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 6px;
+  border-top: 1px solid var(--c-ink-05);
+}
+.summary__list div:first-child { border-top: 0; padding-top: 0; }
+.summary__list dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--c-ink-50);
+  font-size: var(--fs-15);
+}
+.summary__list dt .ico { width: 16px; height: 16px; color: var(--c-ink-50); }
+.summary__list dd {
+  margin: 0;
+  color: var(--c-ink);
+  font-size: var(--fs-15);
+  font-weight: 500;
+}
+
+.summary__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-ink-10);
+}
+.summary__total span { color: var(--c-ink-50); font-size: var(--fs-15); }
+.summary__total strong {
+  font-family: var(--ff-display);
+  font-size: 28px;
+  color: var(--c-ink);
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+
+/* ---- What happens next ---- */
+.next {
+  padding: 80px 0 120px;
+  background: var(--c-mist);
+}
+.next__title {
+  text-align: center;
+  font-family: var(--ff-display);
+  font-size: 40px;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
+  margin-bottom: 40px;
+}
+.next__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.next__step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.next__num {
+  display: block;
+  font-size: var(--fs-13);
+  color: var(--c-ink-50);
+  letter-spacing: .04em;
+  margin-bottom: 6px;
+}
+.next__step h3 {
+  font-size: var(--fs-20);
+  color: var(--c-ink);
+  font-weight: 500;
+}
+.next__step p {
+  font-size: var(--fs-15);
+  color: var(--c-ink-50);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .success__title { font-size: 40px; }
+  .summary { grid-template-columns: 1fr; }
+  .summary__media { height: 200px; }
+  .next__grid { grid-template-columns: 1fr; }
+}

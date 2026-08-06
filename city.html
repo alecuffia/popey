@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Popey — City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <style>
+    .city-hero {
+      position: relative;
+      height: 640px;
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--c-white);
+      display: flex;
+      align-items: flex-end;
+    }
+    .city-hero__bg { position: absolute; inset: 0; z-index: -1; }
+    .city-hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+    .city-hero__bg::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,29,27,.75), rgba(13,29,27,.2) 55%, rgba(13,29,27,.1));
+    }
+    .city-hero__inner { padding-bottom: 80px; padding-top: 160px; width: 100%; }
+    .city-hero__eyebrow { font-size: 15px; opacity: .8; letter-spacing: .06em; text-transform: uppercase; }
+    .city-hero h1 {
+      font-family: var(--ff-display);
+      font-size: 96px;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-top: 8px;
+    }
+    .city-hero p { max-width: 640px; margin-top: 20px; color: rgba(255,255,255,.85); font-size: 18px; line-height: 1.5; }
+    .city-hero__stats {
+      margin-top: 40px; display: inline-flex; gap: 40px; padding: 20px 32px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(14px);
+    }
+    .city-hero__stats .stat__num { font-family: var(--ff-display); font-size: 32px; color: var(--c-white); }
+    .city-hero__stats .stat__lab { font-size: 14px; color: rgba(255,255,255,.7); }
+
+    .city-body { padding-block: 96px; background: var(--c-white); }
+    .city-body__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .city-body h2 {
+      font-family: var(--ff-display);
+      font-size: 40px;
+      letter-spacing: -0.01em;
+    }
+    .city-body p { color: var(--c-ink-70); margin-top: 12px; line-height: 1.55; }
+    .city-body ul { margin-top: 20px; display: grid; gap: 8px; }
+    .city-body ul li { display: flex; gap: 12px; align-items: flex-start; color: var(--c-ink-70); font-size: 15px; }
+    .city-body ul li::before { content: ""; margin-top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--c-teal); flex: none; }
+
+    .related { padding: 96px 0 120px; background: var(--c-mist); }
+    .related h2 { font-family: var(--ff-display); font-size: 40px; margin-bottom: 32px; letter-spacing: -0.01em; }
+  </style>
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="container nav">
+    <a href="index.html" class="nav__logo"><img src="assets/images/logo.svg" alt=""></a>
+    <nav class="nav__center">
+      <a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a>
+      <button class="nav__cities" data-cities-toggle aria-haspopup="true" aria-expanded="false">
+        <span data-i18n="nav.cities">Cities</span>
+        <svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <a href="index.html#how" data-i18n="nav.how">How it Works</a>
+      <a href="#" data-i18n="nav.help">Help</a>
+      <a href="#" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav__lang">
+      <button class="lang-btn is-active"><span class="flag flag-us"></span>EN</button>
+      <button class="lang-btn"><span class="flag flag-es"></span>ES</button>
+    </div>
+  </div>
+</header>
+
+<section class="city-hero">
+  <div class="city-hero__bg"><img id="city-img" src="assets/images/city-barcelona.jpg" alt=""></div>
+  <div class="container city-hero__inner">
+    <span class="city-hero__eyebrow" id="city-country">Spain</span>
+    <h1 id="city-name">Barcelona</h1>
+    <p id="city-desc">Sail from Port Olímpic to the Costa Brava. Sunlit marinas, Gaudí skylines, and clear Mediterranean water — the perfect base for a day at sea.</p>
+    <div class="city-hero__stats">
+      <div class="stat"><span class="stat__num" id="stat-boats">82</span><span class="stat__lab" data-i18n="stats.boats">Boats available</span></div>
+      <div class="stat"><span class="stat__num" id="stat-rating">4.4</span><span class="stat__lab" data-i18n="stats.rating">Avg. Rating</span></div>
+      <div class="stat"><span class="stat__num" id="stat-guests">32+</span><span class="stat__lab" data-i18n="stats.guests">Happy guests</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="city-body">
+  <div class="container city-body__grid">
+    <div>
+      <h2 data-i18n="city.whySail">Why sail here</h2>
+      <p id="city-longdesc">Barcelona is the Mediterranean at its most alive. Set out for a morning across the Balearic Sea, drop anchor for lunch off Sitges, and return for sunset at the marina.</p>
+      <ul>
+        <li>Warm season from May through October</li>
+        <li>Sailboats, motor yachts, and catamarans available</li>
+        <li>Licensed captains and instant booking supported</li>
+        <li>Direct chat with the boat owner before your trip</li>
+      </ul>
+    </div>
+    <div>
+      <h2 data-i18n="city.topMarinas">Top marinas</h2>
+      <p>Departures from the most iconic starting points around the city.</p>
+      <ul>
+        <li>Port Olímpic — city marina, easy access from Barceloneta</li>
+        <li>Port Vell — historic harbor at the base of Las Ramblas</li>
+        <li>Port Ginesta — full-service marina, ~25 min from center</li>
+        <li>Marina Vela — luxury docks with concierge service</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="container">
+    <h2 data-i18n="city.more">More destinations</h2>
+    <div class="cities-grid">
+      <a href="city.html?c=monaco" class="city-card">
+        <img src="assets/images/city-monaco.jpg" alt="">
+        <div class="city-card__body"><span class="city-card__name">Monaco</span><span class="city-card__count">124 Yachts available</span></div>
+      </a>
+      <a href="city.html?c=ibiza" class="city-card">
+        <img src="assets/images/city-ibiza.jpg" alt="">
+        <div class="city-card__body"><span class="city-card__name">Ibiza</span><span class="city-card__count">115 Charters available</span></div>
+      </a>
+      <a href="city.html?c=mykonos" class="city-card">
+        <img src="assets/images/city-mykonos.jpg" alt="">
+        <div class="city-card__body"><span class="city-card__name">Mykonos</span><span class="city-card__count">73 Charters available</span></div>
+      </a>
+      <a href="city.html?c=santorini" class="city-card">
+        <img src="assets/images/city-santorini.jpg" alt="">
+        <div class="city-card__body"><span class="city-card__name">Santorini</span><span class="city-card__count">42 Sailboats available</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__bg"><img src="assets/images/ocean-cta.jpg" alt=""></div>
+  <div class="site-footer__inner">
+    <div class="footer-cta">
+      <h2 class="footer-cta__title">
+        <span data-i18n="footer.cta.line1">Find and book unforgettable</span><br>
+        <span class="t-grad" data-i18n="footer.cta.line2">experiences at sea</span>
+      </h2>
+      <a href="catalogue.html" class="btn btn--dark footer-cta__btn">
+        <span data-i18n="footer.cta.btn">See Catalogue</span>
+        <svg class="ico ico--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo" aria-label="Popey home">
+        <img src="assets/images/logo.svg" alt="">
+      </a>
+      <p class="footer-tagline" data-i18n="footer.tagline">Nautical experiences for everyone</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a>
+        <a href="#" data-cities-toggle data-i18n="nav.cities">Cities</a>
+        <a href="index.html#how" data-i18n="nav.how">How it Works</a>
+        <a href="#" data-i18n="nav.help">Help</a>
+        <a href="#" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <p class="footer-legal" data-i18n="footer.legal">© 2026 Popey All rights reserved.</p>
+      <div class="nav__lang footer-lang">
+        <button class="lang-btn is-active"><span class="flag flag-us"></span>EN</button>
+        <button class="lang-btn"><span class="flag flag-es"></span>ES</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cities dropdown (same as index) so nav Cities button works here too -->
+<div class="cities-dropdown" data-cities-menu role="dialog" aria-modal="false" style="position:fixed;top:104px;">
+  <div class="container">
+    <div class="cities-dropdown__panel">
+      <div class="cities-dropdown__head">
+        <h3 class="cities-dropdown__title" data-i18n="cities.title">Our destinations</h3>
+        <p class="cities-dropdown__sub" data-i18n="cities.sub">Explore the world's most prestigious marinas and hidden archipelagos.</p>
+      </div>
+      <div class="cities-grid">
+        <a href="city.html?c=monaco" class="city-card"><img src="assets/images/city-monaco.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Monaco</span><span class="city-card__count">124 Yachts available</span></div></a>
+        <a href="city.html?c=dubrovnik" class="city-card"><img src="assets/images/city-dubrovnik.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Dubrovnik</span><span class="city-card__count">86 Vessels available</span></div></a>
+        <a href="city.html?c=santorini" class="city-card"><img src="assets/images/city-santorini.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Santorini</span><span class="city-card__count">42 Sailboats available</span></div></a>
+        <a href="city.html?c=ibiza" class="city-card"><img src="assets/images/city-ibiza.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Ibiza</span><span class="city-card__count">115 Charters available</span></div></a>
+        <a href="city.html?c=miami" class="city-card"><img src="assets/images/city-miami.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Miami</span><span class="city-card__count">320 Yachts available</span></div></a>
+        <a href="city.html?c=barcelona" class="city-card"><img src="assets/images/city-barcelona.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Barcelona</span><span class="city-card__count">14 Vessels available</span></div></a>
+        <a href="city.html?c=punta" class="city-card"><img src="assets/images/city-punta.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Punta del Este</span><span class="city-card__count">32 Sailboats available</span></div></a>
+        <a href="city.html?c=mykonos" class="city-card"><img src="assets/images/city-mykonos.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Mykonos</span><span class="city-card__count">73 Charters available</span></div></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cities-dropdown__scrim" data-cities-scrim></div>
+
+<script>
+  // City page: read ?c=slug and populate hero
+  const CITIES = {
+    monaco:   { name: "Monaco",         country: "Monte-Carlo, Monaco",   img: "assets/images/city-monaco.jpg",    boats: 124, rating: 4.9, guests: "62+",
+      desc: "Set sail from Port Hercule between superyachts and legendary events.",
+      longdesc: "Monaco distills Mediterranean glamour: pristine marinas, world-class dining, and the Riviera coastline at your doorstep. Every day at sea here is an event."},
+    dubrovnik:{ name: "Dubrovnik",      country: "Dalmatia, Croatia",     img: "assets/images/city-dubrovnik.jpg", boats: 86,  rating: 4.7, guests: "44+",
+      desc: "The pearl of the Adriatic — walled old town, hidden coves, and turquoise water.",
+      longdesc: "From Gruž Marina, cruise the Elaphiti Islands and turquoise Adriatic bays, returning to Dubrovnik's medieval walls at sunset."},
+    santorini:{ name: "Santorini",      country: "Cyclades, Greece",      img: "assets/images/city-santorini.jpg", boats: 42,  rating: 4.9, guests: "31+",
+      desc: "Sail the caldera at sunset — the most iconic view in the Aegean.",
+      longdesc: "Depart from Vlychada to the caldera, the White Beach and Red Beach, and float above the volcano as the sun drops behind Oia."},
+    ibiza:    { name: "Ibiza",          country: "Balearic Islands, Spain", img: "assets/images/city-ibiza.jpg",   boats: 115, rating: 4.7, guests: "28+",
+      desc: "Cala hopping, sunset sails, and legendary summer nights.",
+      longdesc: "From Marina Botafoch or San Antonio, cruise to Formentera's Playa de Ses Illetes and Es Vedrà for the best sunset on the Med."},
+    miami:    { name: "Miami",          country: "Florida, USA",           img: "assets/images/city-miami.jpg",    boats: 320, rating: 4.8, guests: "48+",
+      desc: "Skyline yachting, Biscayne Bay, and easy Bahamas day-trips.",
+      longdesc: "Depart Miami Beach Marina or Bayside for a spin around Star Island, then anchor at Nixon Beach with the Miami skyline behind you."},
+    barcelona:{ name: "Barcelona",      country: "Catalonia, Spain",       img: "assets/images/city-barcelona.jpg",boats: 82,  rating: 4.4, guests: "32+",
+      desc: "Sail from Port Olímpic to the Costa Brava.",
+      longdesc: "Barcelona is the Mediterranean at its most alive. Set out for a morning across the Balearic Sea, drop anchor for lunch off Sitges, and return for sunset at the marina."},
+    punta:    { name: "Punta del Este", country: "Maldonado, Uruguay",     img: "assets/images/city-punta.jpg",    boats: 32,  rating: 4.6, guests: "18+",
+      desc: "South Atlantic style — La Mansa, La Brava, and Isla Gorriti.",
+      longdesc: "Punta del Este blends Atlantic waves with calm-side beaches. Sail to Isla Gorriti for lunch or Isla de Lobos for sea lions."},
+    mykonos:  { name: "Mykonos",        country: "Cyclades, Greece",       img: "assets/images/city-mykonos.jpg",  boats: 73,  rating: 4.9, guests: "36+",
+      desc: "Delos and Rhenia, hidden beaches, and Aegean blues.",
+      longdesc: "Sail from the New Port to Delos, Rhenia and the south-shore beaches — clear Aegean water and easy anchorages all day."},
+  };
+  const slug = new URLSearchParams(location.search).get('c') || 'barcelona';
+  const c = CITIES[slug] || CITIES.barcelona;
+  document.title = `Popey — ${c.name}`;
+  document.getElementById('city-name').textContent = c.name;
+  document.getElementById('city-country').textContent = c.country;
+  document.getElementById('city-img').src = c.img;
+  document.getElementById('city-desc').textContent = c.desc;
+  document.getElementById('city-longdesc').textContent = c.longdesc;
+  document.getElementById('stat-boats').textContent = c.boats;
+  document.getElementById('stat-rating').textContent = c.rating;
+  document.getElementById('stat-guests').textContent = c.guests;
+</script>
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

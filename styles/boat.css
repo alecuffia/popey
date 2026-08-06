@@ -1,0 +1,278 @@
+/* ============================================
+   POPEY — Boat detail page
+   ============================================ */
+
+/* ---- Hero ---- */
+.boat-hero {
+  position: relative;
+  min-height: 640px;
+  overflow: visible;
+  isolation: isolate;
+  color: var(--c-white);
+  padding-bottom: 60px;
+}
+.boat-hero__bg {
+  position: absolute;
+  inset: 0 0 60px 0;
+  z-index: -1;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.boat-hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+.boat-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,29,27,.85), rgba(13,29,27,.4) 50%, rgba(13,29,27,.25));
+}
+.boat-hero__inner { padding: 160px 0 80px; }
+.boat-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--c-white);
+  font-size: var(--fs-13);
+  backdrop-filter: blur(10px);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.boat-hero__back:hover { background: rgba(255,255,255,.2); }
+.boat-hero__back .ico { width: 14px; height: 14px; }
+
+.boat-hero__title {
+  margin-top: 32px;
+  font-family: var(--ff-display);
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--c-white);
+}
+.boat-hero__meta {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  color: rgba(255,255,255,.85);
+  font-size: var(--fs-15);
+}
+.boat-hero__location { display: inline-flex; align-items: center; gap: 8px; }
+.boat-hero__location .ico { width: 16px; height: 16px; }
+.boat-hero__rating { display: inline-flex; align-items: center; gap: 4px; }
+.boat-hero__rating .ico { color: #f3c90f; width: 16px; height: 16px; }
+.boat-hero__rating span { margin-left: 6px; color: var(--c-white); }
+
+
+/* ---- Specs strip overlapping hero ---- */
+.boat-specs {
+  position: relative;
+  z-index: 2;
+  margin-top: -60px;
+  background: var(--c-white);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.05);
+}
+.boat-specs__cell { display: flex; align-items: center; gap: 14px; }
+.boat-specs__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--c-mist);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-teal);
+  flex: none;
+}
+.boat-specs__icon .ico { width: 18px; height: 18px; }
+.boat-specs__val { margin: 0; color: var(--c-ink); font-size: var(--fs-15); font-weight: 500; }
+.boat-specs__lab { margin: 2px 0 0; color: var(--c-ink-50); font-size: var(--fs-13); }
+
+
+/* ---- Main content: desc + booking sidebar ---- */
+.boat-main {
+  padding: 96px 0 80px;
+  background: var(--c-white);
+}
+.boat-main__grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 80px;
+  align-items: start;
+}
+.boat-main__title {
+  font-family: var(--ff-display);
+  font-size: 40px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--c-ink);
+}
+.boat-main__desc {
+  margin-top: 20px;
+  font-size: var(--fs-15);
+  color: var(--c-ink-70);
+  line-height: 1.6;
+}
+.boat-main__desc + .boat-main__desc { margin-top: 12px; }
+
+.boat-main__subtitle {
+  margin-top: 48px;
+  font-family: var(--ff-display);
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
+}
+.boat-amenities {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
+  padding: 0;
+  list-style: none;
+}
+.boat-amenities li { display: inline-flex; align-items: center; gap: 12px; font-size: var(--fs-15); color: var(--c-ink); }
+.boat-amenities .ico { width: 20px; height: 20px; color: var(--c-teal); }
+
+/* Host card */
+.boat-host {
+  margin-top: 40px;
+  padding: 20px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--c-ink-10);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.boat-host__avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex: none; }
+.boat-host__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.boat-host__info { flex: 1; }
+.boat-host__label { margin: 0; font-size: var(--fs-15); color: var(--c-ink); }
+.boat-host__label strong { font-weight: 500; }
+.boat-host__note { margin: 2px 0 0; color: var(--c-ink-50); font-size: var(--fs-13); }
+.boat-host .btn { padding: 10px 18px; font-size: var(--fs-13); }
+
+
+/* ---- Booking sidebar ---- */
+.booking {
+  position: sticky;
+  top: 120px;
+  background: var(--c-white);
+  border: 1px solid var(--c-ink-10);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.04);
+}
+.booking__price-row { display: flex; align-items: baseline; justify-content: space-between; }
+.booking__price {
+  font-family: var(--ff-display);
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
+}
+.booking__price span { font-family: var(--ff-sans); font-size: var(--fs-15); color: var(--c-ink-50); margin-left: 4px; }
+.booking__price-note { margin: 4px 0 20px; font-size: var(--fs-13); color: var(--c-teal); }
+
+.booking__form { display: flex; flex-direction: column; gap: 12px; }
+.booking__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--c-ink-10);
+  border-radius: 12px;
+  padding: 10px 16px;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.booking__field:hover { border-color: var(--c-ink-50); }
+.booking__field-lab { font-size: 11px; color: var(--c-ink-50); text-transform: uppercase; letter-spacing: .08em; }
+.booking__field input, .booking__field select {
+  border: 0; background: transparent; outline: 0;
+  font-family: var(--ff-sans); font-size: var(--fs-15);
+  color: var(--c-ink); padding: 4px 0 0 0; width: 100%;
+}
+.booking__field .ico {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--c-ink-50); pointer-events: none;
+}
+
+.booking__breakdown {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-ink-10);
+  display: flex; flex-direction: column; gap: 8px;
+  font-size: var(--fs-15); color: var(--c-ink-70);
+}
+.booking__breakdown div { display: flex; justify-content: space-between; }
+.booking__breakdown strong { color: var(--c-ink); font-weight: 500; }
+.booking__total {
+  margin-top: 4px; padding-top: 12px;
+  border-top: 1px solid var(--c-ink-10);
+  font-size: var(--fs-17) !important; color: var(--c-ink) !important;
+}
+.booking__submit { margin-top: 16px; justify-content: center; width: 100%; }
+.booking__submit.is-loading { opacity: .6; pointer-events: none; }
+.booking__note { margin: 12px 0 0; text-align: center; color: var(--c-ink-50); font-size: var(--fs-13); }
+
+
+/* ---- Gallery ---- */
+.ship-gallery { padding: 80px 0; background: var(--c-mist); }
+.ship-gallery__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 32px;
+}
+.ship-gallery__head h2 {
+  font-family: var(--ff-display); font-size: 40px; color: var(--c-ink); letter-spacing: -0.01em;
+}
+.ship-gallery__head p { color: var(--c-ink-50); font-size: var(--fs-15); margin-top: 4px; }
+
+.ship-gallery__grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 16px; height: 480px;
+}
+.ship-gallery__main { border-radius: 20px; overflow: hidden; height: 100%; }
+.ship-gallery__main img { width: 100%; height: 100%; object-fit: cover; }
+.ship-gallery__thumbs {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px;
+}
+.ship-gallery__thumb {
+  border-radius: 16px; overflow: hidden; padding: 0; border: 0; cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  background: none;
+}
+.ship-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ship-gallery__thumb:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.1); }
+.ship-gallery__thumb.is-active { outline: 3px solid var(--c-teal); outline-offset: 2px; }
+
+
+/* ---- Similar boats ---- */
+.similar-boats { padding: 80px 0 120px; background: var(--c-white); }
+.similar-boats__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 32px;
+}
+.similar-boats__head h2 {
+  font-family: var(--ff-display); font-size: 40px; color: var(--c-ink); letter-spacing: -0.01em;
+}
+.similar-boats__nav { display: inline-flex; gap: 8px; }
+.similar-boats__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .boat-main__grid { grid-template-columns: 1fr; }
+  .booking { position: static; }
+  .boat-specs { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 24px; }
+  .similar-boats__grid { grid-template-columns: repeat(2, 1fr); }
+  .ship-gallery__grid { grid-template-columns: 1fr; height: auto; }
+  .ship-gallery__thumbs { grid-template-columns: repeat(4, 1fr); grid-template-rows: 100px; }
+}
+@media (max-width: 640px) {
+  .boat-hero__title { font-size: 40px; }
+  .boat-specs { grid-template-columns: 1fr; }
+  .boat-amenities { grid-template-columns: 1fr; }
+  .similar-boats__grid { grid-template-columns: 1fr; }
+}

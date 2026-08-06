@@ -1,0 +1,686 @@
+/* ============================================
+   POPEY — Shared components
+   ============================================ */
+
+/* ---- Search bar (hero) ---- */
+.searchbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+.searchbar__field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: var(--c-white-50);
+  border: 1px solid var(--c-white);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+  color: var(--c-ink-50);
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+}
+.searchbar__field:hover {
+  background: rgba(255,255,255,.72);
+  border-color: var(--c-white);
+  color: var(--c-ink);
+  transform: translateY(-1px);
+}
+.searchbar__field--location { width: 360px; }
+.searchbar__field--date { width: 240px; justify-content: space-between; }
+
+.searchbar__field input,
+.searchbar__field select {
+  border: 0;
+  background: transparent;
+  outline: 0;
+  width: 100%;
+  color: var(--c-ink) !important;   /* always ink, ignoring parent placeholder color */
+  font-size: var(--fs-15);
+  font-weight: 500;
+}
+.searchbar__field input::placeholder {
+  color: var(--c-ink-50) !important;
+  font-weight: 400;
+}
+/* Fully inked look on focus / filled state for the whole field (icon + label) */
+.searchbar__field:focus-within,
+.searchbar__field:has(input:not(:placeholder-shown)),
+.searchbar__field.is-filled {
+  color: var(--c-ink);
+}
+.searchbar__field:focus-within .ico,
+.searchbar__field:has(input:not(:placeholder-shown)) .ico,
+.searchbar__field.is-filled .ico { color: var(--c-ink); }
+.searchbar__field.is-filled [data-date-label] { color: var(--c-ink); font-weight: 500; }
+
+.searchbar .btn--dark { padding: 16px 20px; }
+
+/* ============================================
+   AUTOCOMPLETE (search location)
+   ============================================ */
+.searchbar__field--location { position: relative; }
+.autocomplete {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: -80px;                     /* extend beyond field for wider suggestions */
+  min-width: 400px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: var(--c-white);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-pop);
+  padding: 8px;
+  display: none;
+  z-index: 50;
+}
+.autocomplete.is-open { display: block; animation: dropdown-in 220ms var(--ease-out); }
+.autocomplete__group + .autocomplete__group { margin-top: 8px; border-top: 1px solid var(--c-ink-05); padding-top: 8px; }
+.autocomplete__label {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--c-ink-50);
+  padding: 8px 12px 4px;
+}
+.autocomplete__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+  color: var(--c-ink);
+  font-size: var(--fs-15);
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+.autocomplete__item:hover,
+.autocomplete__item.is-focus { background: var(--c-mist); }
+.autocomplete__item .ico { width: 16px; height: 16px; color: var(--c-ink-50); flex: none; }
+.autocomplete__item strong { font-weight: 500; }
+.autocomplete__item mark { background: transparent; color: var(--c-teal); font-weight: 500; }
+.autocomplete__item .autocomplete__meta { margin-left: auto; color: var(--c-ink-50); font-size: var(--fs-13); }
+.autocomplete__empty {
+  padding: 16px 12px;
+  color: var(--c-ink-50);
+  font-size: var(--fs-15);
+  text-align: center;
+}
+
+
+/* ============================================
+   DATEPICKER (Pick a date)
+   ============================================ */
+.searchbar__field--date { position: relative; }
+.datepicker {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 320px;
+  background: var(--c-white);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-pop);
+  padding: 16px;
+  display: none;
+  z-index: 50;
+  color: var(--c-ink);
+  cursor: default;
+}
+.datepicker.is-open { display: block; animation: dropdown-in 220ms var(--ease-out); }
+.datepicker__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.datepicker__title {
+  font-size: var(--fs-15);
+  font-weight: 500;
+  color: var(--c-ink);
+  font-family: var(--ff-sans);
+}
+.datepicker__nav {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-ink);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.datepicker__nav:hover { background: var(--c-mist); }
+.datepicker__nav .ico { width: 14px; height: 14px; }
+
+.datepicker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.datepicker__dow {
+  font-size: 11px;
+  color: var(--c-ink-50);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  text-align: center;
+  padding: 6px 0;
+}
+.datepicker__day {
+  padding: 0;
+  height: 34px;
+  border-radius: 8px;
+  font-size: var(--fs-13);
+  color: var(--c-ink);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.datepicker__day:hover:not(:disabled) { background: var(--c-mist); }
+.datepicker__day.is-today { font-weight: 600; color: var(--c-teal); }
+.datepicker__day.is-selected {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+.datepicker__day:disabled { color: var(--c-ink-10); cursor: not-allowed; }
+.datepicker__day--pad { visibility: hidden; }
+.datepicker__foot {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--c-ink-05);
+}
+.datepicker__foot button {
+  padding: 8px 14px;
+  font-size: var(--fs-13);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--c-ink);
+  border: 0;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.datepicker__foot button:hover { background: var(--c-mist); }
+.datepicker__foot .datepicker__apply {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+.datepicker__foot .datepicker__apply:hover { filter: brightness(1.08); }
+
+/* ---- Rating row ---- */
+.ratings {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-ink-70);
+  font-size: var(--fs-15);
+}
+.ratings__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.ratings__stars .ico {
+  width: 20px;
+  height: 20px;
+  color: #f3c90f;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* ---- Card (boat) ---- */
+.boat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.boat-card__media {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 344 / 380;
+  isolation: isolate;
+}
+.boat-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.boat-card:hover { transform: translateY(-4px); }
+.boat-card:hover .boat-card__media img { transform: scale(1.05); }
+
+.boat-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--c-white);
+  color: var(--c-ink);
+  padding: 8px 12px;
+  font-size: var(--fs-15);
+  border-radius: var(--r-pill);
+  z-index: 2;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+.boat-card__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 4px;
+  z-index: 2;
+}
+.boat-card__dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-white-50);
+}
+.boat-card__dots span.is-active { background: var(--c-white); }
+
+.boat-card__title {
+  font-size: var(--fs-20);
+  color: var(--c-ink);
+  line-height: 1.25;
+}
+.boat-card__desc {
+  font-size: var(--fs-15);
+  color: var(--c-ink-50);
+  line-height: 1.4;
+}
+
+.boat-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-15);
+  color: var(--c-ink);
+  gap: 8px;
+}
+.boat-card__specs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--c-ink-70);
+}
+.boat-card__spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+}
+.boat-card__spec .ico { width: 16px; height: 16px; color: var(--c-ink-50); }
+.boat-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(243, 201, 15, 0.16);
+  color: var(--c-ink);
+  border-radius: var(--r-pill);
+}
+.boat-card__rating .ico { width: 16px; height: 16px; color: #f3c90f; fill: currentColor; }
+
+.boat-card__price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 9px;
+  border-top: 1px solid var(--c-ink-10);
+  font-size: var(--fs-15);
+}
+.boat-card__price strong { font-weight: 400; color: var(--c-ink); }
+
+/* ---- Section header ---- */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 720px;
+}
+
+/* ---- Chip ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--c-ink-05);
+  color: var(--c-ink);
+  font-size: var(--fs-15);
+  border-radius: var(--r-pill);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.chip:hover { background: rgba(13,29,27,.1); }
+.chip .ico { width: 14px; height: 14px; }
+
+/* ---- Tag chip (active filter) ---- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--c-mist);
+  color: var(--c-ink);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-15);
+}
+.tag button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: var(--c-ink-50);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.tag button:hover { color: var(--c-ink); }
+
+/* ---- Stats banner ---- */
+.stats-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 88px;
+  padding: 24px 48px;
+  border-radius: var(--r-md);
+  background: linear-gradient(to bottom, rgba(255,255,255,.3), rgba(255,255,255,.1));
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(12px);
+  color: var(--c-white);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat__num {
+  font-family: var(--ff-display);
+  font-size: var(--fs-40);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.stat__lab {
+  font-size: var(--fs-15);
+  opacity: .5;
+}
+
+/* ============================================
+   CITIES DROPDOWN — opens from the site header (below nav)
+   ============================================ */
+.cities-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+  /* fit in the fold below the header */
+  max-height: calc(100vh - 100px);
+}
+.cities-dropdown.is-open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.cities-dropdown__scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,29,27,.35);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+  pointer-events: none;
+}
+.cities-dropdown__scrim.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cities-dropdown__panel {
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 28px;
+  padding: 24px 24px 20px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.1), 0 47px 47px rgba(0,0,0,.08), 0 106px 64px rgba(0,0,0,.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1328px;
+  margin-inline: auto;
+}
+.cities-dropdown__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cities-dropdown__title { font-size: var(--fs-20); color: var(--c-ink); font-family: var(--ff-sans); font-weight: 500; }
+.cities-dropdown__sub { font-size: var(--fs-13); color: var(--c-ink-50); }
+
+.cities-dropdown__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.cities-dropdown__foot .btn { padding: 12px 18px; font-size: var(--fs-13); }
+
+
+/* ============================================
+   CITY CARDS (used by dropdown + city page)
+   Height is fluid inside the dropdown so it fits the fold.
+   ============================================ */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.cities-dropdown .cities-grid {
+  /* pack two rows of city cards into whatever height remains after title+footer */
+  grid-auto-rows: minmax(0, 1fr);
+}
+.city-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  color: var(--c-white);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+.cities-dropdown .city-card {
+  /* When inside the dropdown, size responsively so 2 rows always fit */
+  aspect-ratio: auto;
+  height: auto;
+  min-height: 0;
+}
+.city-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: transform 900ms var(--ease-out), filter 400ms var(--ease-out);
+}
+.city-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13,29,27,0) 45%, rgba(13,29,27,.7) 100%);
+  z-index: -1;
+  transition: background var(--dur-med) var(--ease-out);
+}
+.city-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,.18), 0 4px 12px rgba(0,0,0,.1);
+}
+.city-card:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.1);
+}
+.city-card:hover::after {
+  background: linear-gradient(to bottom, rgba(13,29,27,0) 25%, rgba(13,29,27,.75) 100%);
+}
+.city-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(0);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.city-card:hover .city-card__body { transform: translateY(-4px); }
+.city-card__name { font-size: var(--fs-20); color: var(--c-white); font-family: var(--ff-sans); font-weight: 500; }
+.city-card__count { font-size: var(--fs-15); color: rgba(255,255,255,.85); }
+
+/* Legacy cities-menu selectors kept as no-ops for graceful fallback */
+.cities-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  isolation: isolate;
+}
+.cities-menu.is-open { display: block; }
+.cities-menu__bg {
+  position: absolute;
+  inset: 0;
+}
+.cities-menu__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cities-menu__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(13,29,27,.35);
+}
+
+.cities-menu__panel {
+  position: absolute;
+  inset: 104px 56px auto 56px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.1), 0 47px 47px rgba(0,0,0,.09), 0 106px 64px rgba(0,0,0,.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+}
+.cities-menu.is-open .cities-menu__panel {
+  opacity: 1;
+  transform: none;
+}
+
+.cities-menu__head { display: flex; flex-direction: column; gap: 8px; max-width: 475px; }
+.cities-menu__title { font-size: var(--fs-24); color: var(--c-ink); }
+.cities-menu__sub { font-size: var(--fs-15); color: var(--c-ink-50); }
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.city-card {
+  position: relative;
+  height: 235px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: var(--c-white);
+  transition: transform var(--dur-med) var(--ease-out);
+  cursor: pointer;
+}
+.city-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.city-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13,29,27,0) 50%, rgba(13,29,27,.6) 100%);
+  z-index: -1;
+}
+.city-card:hover { transform: translateY(-4px); }
+.city-card:hover img { transform: scale(1.06); }
+.city-card__name { font-size: var(--fs-20); color: var(--c-white); }
+.city-card__count { font-size: var(--fs-15); color: var(--c-white-80); }
+
+.cities-menu__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.cities-menu__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--c-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-ink);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.cities-menu__close:hover { transform: rotate(90deg); }
+
+/* ---- Toast / floating stats banner under cities menu ---- */
+.cities-menu__stats {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+}

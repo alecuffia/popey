@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Popey — Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/catalogue.css">
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="container nav">
+    <a href="index.html" class="nav__logo"><img src="assets/images/logo.svg" alt=""></a>
+    <nav class="nav__center">
+      <a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a>
+      <button class="nav__cities" data-cities-toggle aria-haspopup="true" aria-expanded="false">
+        <span data-i18n="nav.cities">Cities</span>
+        <svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <a href="index.html#how" data-i18n="nav.how">How it Works</a>
+      <a href="#" data-i18n="nav.help">Help</a>
+      <a href="#" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav__lang">
+      <button class="lang-btn is-active"><span class="flag flag-us"></span>EN</button>
+      <button class="lang-btn"><span class="flag flag-es"></span>ES</button>
+    </div>
+  </div>
+
+  <div class="cities-dropdown" data-cities-menu role="dialog" aria-modal="false">
+    <div class="container">
+      <div class="cities-dropdown__panel">
+        <div class="cities-dropdown__head">
+          <h3 class="cities-dropdown__title" data-i18n="cities.title">Our destinations</h3>
+          <p class="cities-dropdown__sub" data-i18n="cities.sub">Explore the world's most prestigious marinas and hidden archipelagos.</p>
+        </div>
+        <div class="cities-grid">
+          <a href="city.html?c=monaco" class="city-card"><img src="assets/images/city-monaco.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Monaco</span><span class="city-card__count">124 Yachts available</span></div></a>
+          <a href="city.html?c=dubrovnik" class="city-card"><img src="assets/images/city-dubrovnik.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Dubrovnik</span><span class="city-card__count">86 Vessels available</span></div></a>
+          <a href="city.html?c=santorini" class="city-card"><img src="assets/images/city-santorini.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Santorini</span><span class="city-card__count">42 Sailboats available</span></div></a>
+          <a href="city.html?c=ibiza" class="city-card"><img src="assets/images/city-ibiza.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Ibiza</span><span class="city-card__count">115 Charters available</span></div></a>
+          <a href="city.html?c=miami" class="city-card"><img src="assets/images/city-miami.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Miami</span><span class="city-card__count">320 Yachts available</span></div></a>
+          <a href="city.html?c=barcelona" class="city-card"><img src="assets/images/city-barcelona.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Barcelona</span><span class="city-card__count">14 Vessels available</span></div></a>
+          <a href="city.html?c=punta" class="city-card"><img src="assets/images/city-punta.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Punta del Este</span><span class="city-card__count">32 Sailboats available</span></div></a>
+          <a href="city.html?c=mykonos" class="city-card"><img src="assets/images/city-mykonos.jpg" alt=""><div class="city-card__body"><span class="city-card__name">Mykonos</span><span class="city-card__count">73 Charters available</span></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="cities-dropdown__scrim" data-cities-scrim></div>
+
+<main class="cat-page">
+  <div class="searchstrip">
+    <div class="container searchstrip__row">
+      <button class="searchstrip__field searchstrip__field--loc">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Barcelona, Spain
+      </button>
+      <button class="searchstrip__field searchstrip__field--date">
+        <span style="display:inline-flex;gap:8px;align-items:center;">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Jul 10 – 17, 2026
+        </span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <button class="searchstrip__field searchstrip__field--guests">
+        <span style="display:inline-flex;gap:8px;align-items:center;">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+          4 Guests
+        </span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <button class="searchstrip__field searchstrip__field--type">
+        Sailboat
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <button class="btn btn--dark searchstrip__btn"><span data-i18n="hero.search.btn">Search</span>
+        <svg class="ico ico--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="container cat-head">
+    <div class="cat-head__row">
+      <div>
+        <h1 class="cat-head__count">248 <span data-i18n="cat.results">boats available in</span> Barcelona</h1>
+        <p class="cat-head__sub">Jul 10 – 17, 2026 · 4 Guests</p>
+      </div>
+      <div class="cat-head__actions">
+        <button class="cat-sort" aria-haspopup="listbox"><span data-i18n="cat.sort.by">Sort by:</span> <strong data-i18n="cat.sort.recommended">Recommended</strong>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cat-view">
+          <button class="cat-view__btn is-active" aria-label="Grid view">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="cat-view__btn" aria-label="List view">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Sailboat <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">Instant Booking <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">Free Cancellation <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">Best Rated <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">Jul 10–17 <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">4 Guests <button data-tag-remove aria-label="Remove">×</button></span>
+      <span class="tag">Under €1000/day <button data-tag-remove aria-label="Remove">×</button></span>
+      <button class="tag-clear" data-i18n="cat.filter.clearAll">Clear all</button>
+    </div>
+  </div>
+
+  <div class="container cat-body">
+    <aside class="cat-side" aria-label="Filters">
+      <div class="cat-filter-group" data-filter-group>
+        <button class="cat-filter-head" data-filter-head>
+          <span data-i18n="cat.filter.price">Price range</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cat-price">
+          <div class="cat-price__track"><div class="cat-price__fill"></div></div>
+          <div class="cat-price__labels"><span>USD 0</span><span>USD 2000+</span></div>
+        </div>
+      </div>
+
+      <div class="cat-filter-group" data-filter-group>
+        <button class="cat-filter-head" data-filter-head>
+          <span data-i18n="cat.filter.filters">Filters</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="cat-filter-list">
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Instant Booking</label></li>
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Free Cancellation</label></li>
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Best Rated</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Captain Included</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Family Friendly</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Party Boats</label></li>
+        </ul>
+      </div>
+
+      <div class="cat-filter-group" data-filter-group>
+        <button class="cat-filter-head" data-filter-head>
+          <span data-i18n="cat.filter.boat">Boat Type</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="cat-filter-list">
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Sailboat</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Catamaran</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Motorboat</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Yacht</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Gulet</label></li>
+        </ul>
+      </div>
+
+      <div class="cat-filter-group" data-filter-group>
+        <button class="cat-filter-head" data-filter-head>
+          <span data-i18n="cat.filter.charter">Charter type</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="cat-filter-list">
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>With skipper</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Bareboat</label></li>
+        </ul>
+      </div>
+
+      <div class="cat-filter-group" data-filter-group>
+        <button class="cat-filter-head" data-filter-head>
+          <span data-i18n="cat.filter.capacity">Capacity</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="cat-filter-list">
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>1 – 2 people</label></li>
+          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>3 – 6 people</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>7 – 12 people</label></li>
+          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>12+ people</label></li>
+        </ul>
+      </div>
+
+      <button class="btn btn--dark cat-side__cta" data-i18n="cat.filter.showResults">Show Results</button>
+    </aside>
+
+    <div class="cat-grid">
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <span class="boat-card__badge">Captain Included</span>
+          <img src="assets/images/boat-azimut.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">40′ Azimut Miami</h3><p class="boat-card__desc">Hit the water in style with this 40′ Azimut</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>13m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>12</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>4</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.3</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 275</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <img src="assets/images/boat-yacht.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">50′ Sunseeker Predator</h3><p class="boat-card__desc">Experience luxury cruising with the 50′ Sunseeker</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>15m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>14</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>6</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.9</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 350</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <img src="assets/images/boat-sail.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">45′ Jeanneau Sun Odyssey</h3><p class="boat-card__desc">Sail the seas with elegance aboard the 45′ Jeanneau</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>13.7m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>10</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>4</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.1</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 250</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <img src="assets/images/boat-pontoon.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">60′ Princess V60</h3><p class="boat-card__desc">Indulge in opulence on the 60′ Princess</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>18.3m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>16</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>8</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>3.9</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 500</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <span class="boat-card__badge">Captain Included</span>
+          <img src="assets/images/boat-yacht.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">30′ Robalo R227</h3><p class="boat-card__desc">Get ready for fishing or cruising with the 30′</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>9.1m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>8</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>4</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.9</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 200</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <img src="assets/images/boat-azimut.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">70′ Sea Ray SLX</h3><p class="boat-card__desc">Explore the waves with the spacious 70′ Sea Ray</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>21.3m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>18</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>10</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>3.8</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 600</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <span class="boat-card__badge">Captain Included</span>
+          <img src="assets/images/boat-pontoon.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">40′ Lagoon Catamaran</h3><p class="boat-card__desc">Enjoy the stability of sailing aboard a 40′ Lagoon</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>12.2m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>10</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>6</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.8</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 300</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <img src="assets/images/boat-sail.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">36′ Bayliner Ciera</h3><p class="boat-card__desc">Relax on the water with the comfortable 36′</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>10.9m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>8</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>4</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.6</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 225</strong></div>
+      </a>
+
+      <a href="boat.html" class="boat-card">
+        <div class="boat-card__media">
+          <span class="boat-card__badge">Captain Included</span>
+          <img src="assets/images/boat-yacht.jpg" alt="">
+          <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
+        </div>
+        <div><h3 class="boat-card__title">55′ Hatteras GT</h3><p class="boat-card__desc">Feel the power of the sea with the 55′ Hatteras</p></div>
+        <div class="boat-card__meta">
+          <div class="boat-card__specs">
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>16.8m</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>16</span>
+            <span class="boat-card__spec"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20V6h20v14"/><path d="M2 14h20"/></svg>8</span>
+          </div>
+          <span class="boat-card__rating"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.2 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.2 9,9"/></svg>4.9</span>
+        </div>
+        <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 550</strong></div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__bg"><img src="assets/images/ocean-cta.jpg" alt=""></div>
+  <div class="site-footer__inner">
+    <div class="footer-cta">
+      <h2 class="footer-cta__title"><span data-i18n="footer.cta.line1">Find and book unforgettable</span><br><span class="t-grad" data-i18n="footer.cta.line2">experiences at sea</span></h2>
+      <a href="catalogue.html" class="btn btn--dark footer-cta__btn"><span data-i18n="footer.cta.btn">See Catalogue</span>
+        <svg class="ico ico--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo"><img src="assets/images/logo.svg" alt=""></a>
+      <p class="footer-tagline" data-i18n="footer.tagline">Nautical experiences for everyone</p>
+      <nav class="footer-nav">
+        <a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a>
+        <a href="#" data-cities-toggle data-i18n="nav.cities">Cities</a>
+        <a href="index.html#how" data-i18n="nav.how">How it Works</a>
+        <a href="#" data-i18n="nav.help">Help</a>
+        <a href="#" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <p class="footer-legal" data-i18n="footer.legal">© 2026 Popey All rights reserved.</p>
+      <div class="nav__lang footer-lang">
+        <button class="lang-btn is-active"><span class="flag flag-us"></span>EN</button>
+        <button class="lang-btn"><span class="flag flag-es"></span>ES</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
