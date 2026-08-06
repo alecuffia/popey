@@ -3,19 +3,142 @@
    Extracted from Figma: c5xLt9Jqba95kqHpRGBIT5
    ============================================ */
 
-/* PP Eiko (commercial — Pangram Pangram). Falls back to Instrument Serif. */
+/* PP Eiko — self-hosted */
 @font-face {
   font-family: "PP Eiko";
-  src: local("PP Eiko Regular"), local("PPEiko-Regular");
+  src: url("../assets/fonts/PPEiko-Thin.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-Light.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-LightItalic.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-Regular.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Regular.ttf") format("truetype");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-Medium.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-MediumItalic.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-Heavy.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Heavy.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-Black.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Eiko";
+  src: url("../assets/fonts/PPEiko-BlackItalic.otf") format("opentype"),
+       url("../assets/fonts/PPEiko-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
   font-display: swap;
 }
 
-/* Circular Std (commercial). Falls back to Manrope. */
+/* Circular Std — self-hosted */
 @font-face {
   font-family: "Circular Std";
-  src: local("Circular Std Book"), local("CircularStd-Book");
+  src: url("../assets/fonts/CircularStd-Book.otf") format("opentype");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-BookItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("../assets/fonts/CircularStd-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
   font-display: swap;
 }
 
