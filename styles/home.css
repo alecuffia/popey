@@ -796,3 +796,80 @@
   .featured-boats__head { flex-direction: column; align-items: stretch; }
   .escape h2 { font-size: 48px; }
 }
+
+/* ============================================
+   HOME — Mobile (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  /* Hero */
+  .hero { height: auto; min-height: 100svh; }
+  .hero__inner { padding-top: 110px; padding-bottom: 280px; }
+  .hero__title { font-size: clamp(32px, 9vw, 48px); max-width: 100%; }
+  .hero__sub { font-size: var(--fs-15); margin-top: 12px; }
+  .hero__search-wrap {
+    bottom: 24px;
+    left: var(--container-pad-mob);
+    right: var(--container-pad-mob);
+    gap: 12px;
+  }
+
+  /* City rotator */
+  .city-rotator { padding-block: 48px 64px; }
+  .city-rotator__row { gap: 28px; }
+  .city-rotator__title {
+    font-size: 28px;
+    column-gap: 10px;
+    min-height: calc(1.15em * 3);
+  }
+  .city-rotator__list li { font-size: 28px; }
+  .city-rotator__slots { height: calc(1.15em * 3); }
+  .city-frame__stats { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 14px 16px; border-radius: 14px; }
+  .city-frame__stats .stat__num { font-size: 22px; }
+  .city-frame__stats .stat__lab { font-size: 11px; }
+
+  /* How it works */
+  .how { padding-block: 48px 64px; }
+  .how__item h3 { font-size: var(--fs-17); }
+
+  /* Escape the ordinary */
+  .escape { padding: 56px 0 72px; }
+  .escape__title { font-size: 32px; }
+  .escape__sub { font-size: var(--fs-13); }
+  .escape__frame { border-radius: 16px; aspect-ratio: 4/3; }
+  .escape__stats {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px 20px;
+    border-radius: 16px;
+    margin-top: 16px;
+    box-shadow: none;
+    border: 1px solid var(--c-ink-10);
+  }
+  .escape__stats .stat__num { font-size: 28px; }
+  .escape__stats .stat__lab { font-size: var(--fs-13); }
+
+  /* Featured boats */
+  .featured-boats { padding-block: 56px 72px; }
+  .featured-boats__title { font-size: var(--fs-24); }
+  .featured-boats__city { font-size: var(--fs-24); }
+  .featured-boats__city .ico { width: 18px; height: 18px; }
+  .featured-boats__actions { gap: 8px; }
+  .tabs { gap: 20px; }
+  .tab { font-size: var(--fs-15); }
+  .featured-boats__rail { grid-auto-columns: minmax(260px, 85vw); }
+
+  /* Why travelers choose us */
+  .why { padding-block: 64px; border-radius: 40px 40px 0 0; }
+  .why__title { font-size: 32px; }
+  .why__cta { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .why .row dt { font-size: var(--fs-17); }
+  .why .row { padding-block: 20px; }
+
+  /* Reviews */
+  .reviews { padding-block: 56px 64px; }
+  .review-photos { margin: 0 -20px 40px; padding-block: 24px 32px; }
+  .reviews__head h2 { font-size: var(--fs-24); }
+  .review-card__quote { font-size: var(--fs-13); }
+}

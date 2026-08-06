@@ -276,3 +276,63 @@
   .boat-amenities { grid-template-columns: 1fr; }
   .similar-boats__grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   BOAT DETAIL — Mobile (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  /* Hero */
+  .boat-hero { min-height: auto; padding-bottom: 40px; }
+  .boat-hero__inner { padding: 110px 0 56px; }
+  .boat-hero__title { font-size: 28px; margin-top: 20px; }
+  .boat-hero__meta { flex-wrap: wrap; gap: 12px; font-size: var(--fs-13); }
+  .boat-hero__bg { inset: 0 0 40px 0; }
+
+  /* Specs strip */
+  .boat-specs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 18px 16px;
+    border-radius: 14px;
+    margin-top: -40px;
+  }
+  /* Last cell full-width if 5 items */
+  .boat-specs__cell:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .boat-specs__icon { width: 32px; height: 32px; border-radius: 10px; }
+  .boat-specs__icon .ico { width: 14px; height: 14px; }
+  .boat-specs__val { font-size: var(--fs-13); }
+  .boat-specs__lab { font-size: 11px; }
+  .boat-specs__cell { gap: 10px; }
+
+  /* Main content */
+  .boat-main { padding: 32px 0 56px; }
+  .boat-main__title { font-size: 24px; }
+  .boat-main__subtitle { font-size: 20px; margin-top: 32px; }
+  .boat-main__desc { font-size: var(--fs-13); }
+  .boat-amenities { gap: 10px 16px; }
+  .boat-amenities li { font-size: var(--fs-13); }
+
+  /* Host card */
+  .boat-host { flex-wrap: wrap; gap: 12px; padding: 16px; }
+  .boat-host .btn { width: 100%; justify-content: center; }
+
+  /* Booking sidebar */
+  .booking { padding: 20px 16px; border-radius: 16px; }
+  .booking__price { font-size: 26px; }
+  .booking__form { gap: 8px; }
+  .booking__field { padding: 8px 12px; }
+  .booking__field input, .booking__field select { font-size: var(--fs-13); }
+
+  /* Gallery */
+  .ship-gallery { padding: 48px 0; }
+  .ship-gallery__head { flex-direction: column; align-items: flex-start; }
+  .ship-gallery__head h2 { font-size: 24px; }
+  .ship-gallery__main { border-radius: 14px; aspect-ratio: 4/3; }
+  .ship-gallery__thumbs { grid-template-columns: repeat(4, 1fr); grid-template-rows: 72px; gap: 8px; }
+  .ship-gallery__thumb { border-radius: 10px; }
+
+  /* Similar boats */
+  .similar-boats { padding: 48px 0 72px; }
+  .similar-boats__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .similar-boats__head h2 { font-size: 24px; }
+}

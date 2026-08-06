@@ -439,3 +439,97 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .split-line__inner { transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ============================================
+   MOBILE — global overrides (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  body { font-size: var(--fs-13); }
+
+  /* Container padding */
+  .container { padding-inline: var(--container-pad-mob); }
+
+  /* Typography scale-down */
+  .t-display-xl { font-size: 40px; }
+  .t-display-l  { font-size: 32px; }
+  .t-display-m  { font-size: 24px; }
+
+  /* Buttons: full-width on small screens when stacked */
+  .btn { font-size: var(--fs-13); padding: 14px 16px; }
+
+  /* ---- Header / Nav ---- */
+  .site-header { padding-block: 14px; }
+  .nav {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  /* Hide center nav links on mobile */
+  .nav__center { display: none; }
+  .nav__logo { width: 36px; height: 36px; }
+  /* Compact language switcher */
+  .nav__lang {
+    width: 100px;
+    height: 40px;
+    grid-column: 2;
+  }
+  .nav__lang .lang-btn { height: 32px; font-size: 11px; }
+  .nav__lang .lang-btn .flag { width: 16px; height: 11px; }
+
+  /* ---- Footer ---- */
+  .site-footer { min-height: auto; }
+  .site-footer__bg::after {
+    background: linear-gradient(to bottom, rgba(255,255,255,.95) 0%, rgba(255,255,255,.85) 60%, rgba(255,255,255,.6) 100%);
+  }
+  .site-footer__inner { padding: 60px 20px 40px; }
+  .footer-cta { gap: 20px; }
+  .footer-cta__title { font-size: 32px; }
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    padding-top: 48px;
+  }
+  .footer-lang { grid-column: 1; justify-self: start; }
+  .footer-nav { gap: 16px; margin-top: 4px; }
+  .footer-nav a, .footer-legal, .footer-tagline { font-size: var(--fs-13); }
+
+  /* ---- Search bar (hero) ---- */
+  .searchbar {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .searchbar__field { width: 100% !important; min-width: 0 !important; }
+  .searchbar__field--location { width: 100% !important; }
+  .searchbar__field--date { width: 100% !important; }
+  .searchbar .btn--dark { width: 100%; justify-content: center; }
+
+  /* ---- Autocomplete ---- */
+  .autocomplete {
+    right: 0;
+    min-width: 0;
+    left: 0;
+  }
+
+  /* ---- Datepicker ---- */
+  .datepicker { min-width: 0; width: 100%; left: 0; right: 0; }
+
+  /* ---- Stats banner ---- */
+  .stats-banner {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  /* ---- Cities dropdown ---- */
+  .cities-dropdown__panel { padding: 16px 14px; border-radius: 20px; }
+  .cities-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .city-card__name { font-size: var(--fs-15); }
+  .city-card__count { font-size: var(--fs-13); }
+
+  /* ---- Boat card ---- */
+  .boat-card__title { font-size: var(--fs-17); }
+  .boat-card__desc, .boat-card__meta, .boat-card__price { font-size: var(--fs-13); }
+}
