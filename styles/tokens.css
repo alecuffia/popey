@@ -213,6 +213,7 @@
   /* Grid */
   --container-max: 1440px;
   --container-pad: 56px;
+  --container-pad-mob: 20px;
   --grid-gap: 24px;
 
   /* Motion */
