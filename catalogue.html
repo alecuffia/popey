@@ -58,27 +58,49 @@
 <main class="cat-page">
   <div class="searchstrip">
     <div class="container searchstrip__row">
-      <button class="searchstrip__field searchstrip__field--loc">
+      <div class="searchstrip__field searchstrip__field--loc is-filled" data-search-location>
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Barcelona, Spain
-      </button>
-      <button class="searchstrip__field searchstrip__field--date">
+        <input type="text" value="Barcelona, Spain" data-search-input autocomplete="off">
+        <div class="autocomplete" data-autocomplete role="listbox" aria-label="Suggestions"></div>
+      </div>
+      <button type="button" class="searchstrip__field searchstrip__field--date is-filled" data-date-toggle aria-haspopup="dialog" aria-expanded="false">
         <span style="display:inline-flex;gap:8px;align-items:center;">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Jul 10 – 17, 2026
+          <span data-date-label>Jul 10 – 17, 2026</span>
         </span>
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="datepicker" data-datepicker role="dialog" aria-label="Choose date"></div>
       </button>
-      <button class="searchstrip__field searchstrip__field--guests">
+      <button type="button" class="searchstrip__field searchstrip__field--guests is-filled" data-guests-toggle aria-haspopup="dialog" aria-expanded="false">
         <span style="display:inline-flex;gap:8px;align-items:center;">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
-          4 Guests
+          <span data-guests-label>4 Guests</span>
         </span>
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="guests-panel" data-guests-panel role="dialog" aria-label="Select guests">
+          <div class="guests-panel__row">
+            <div class="guests-panel__labels">
+              <span class="guests-panel__title">Guests</span>
+              <span class="guests-panel__sub">Ages 13 or above</span>
+            </div>
+            <div class="stepper">
+              <button type="button" class="stepper__btn" data-guests-minus aria-label="Decrease guests">−</button>
+              <span class="stepper__value" data-guests-value>4</span>
+              <button type="button" class="stepper__btn" data-guests-plus aria-label="Increase guests">+</button>
+            </div>
+          </div>
+        </div>
       </button>
-      <button class="searchstrip__field searchstrip__field--type">
-        Sailboat
+      <button type="button" class="searchstrip__field searchstrip__field--type" data-type-toggle aria-haspopup="dialog" aria-expanded="false">
+        <span data-type-field-label>Boat type</span>
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="type-panel" data-type-panel role="dialog" aria-label="Select boat type">
+          <label class="cat-check" data-filter-type="sailboat"><span class="cat-check__box"></span>Sailboat</label>
+          <label class="cat-check" data-filter-type="catamaran"><span class="cat-check__box"></span>Catamaran</label>
+          <label class="cat-check" data-filter-type="motorboat"><span class="cat-check__box"></span>Motorboat</label>
+          <label class="cat-check" data-filter-type="yacht"><span class="cat-check__box"></span>Yacht</label>
+          <label class="cat-check" data-filter-type="gulet"><span class="cat-check__box"></span>Gulet</label>
+        </div>
       </button>
       <button class="btn btn--dark searchstrip__btn"><span data-i18n="hero.search.btn">Search</span>
         <svg class="ico ico--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -89,12 +111,18 @@
   <div class="container cat-head">
     <div class="cat-head__row">
       <div>
-        <h1 class="cat-head__count">248 <span data-i18n="cat.results">boats available in</span> Barcelona</h1>
-        <p class="cat-head__sub">Jul 10 – 17, 2026 · 4 Guests</p>
+        <h1 class="cat-head__count"><span data-cat-count>9</span> <span data-i18n="cat.results">boats available in</span> <span data-cat-city>Barcelona</span></h1>
+        <p class="cat-head__sub">Jul 10 – 17, 2026 · <span data-cat-guests-sub>4 Guests</span></p>
       </div>
       <div class="cat-head__actions">
-        <button class="cat-sort" aria-haspopup="listbox"><span data-i18n="cat.sort.by">Sort by:</span> <strong data-i18n="cat.sort.recommended">Recommended</strong>
+        <button class="cat-sort" data-sort-toggle aria-haspopup="listbox" aria-expanded="false"><span data-i18n="cat.sort.by">Sort by:</span> <strong data-sort-label data-i18n="cat.sort.recommended">Recommended</strong>
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="sort-panel" data-sort-panel role="listbox" aria-label="Sort by">
+            <button type="button" class="sort-panel__item is-active" data-sort-opt="recommended">Recommended</button>
+            <button type="button" class="sort-panel__item" data-sort-opt="price-asc">Price: Low to High</button>
+            <button type="button" class="sort-panel__item" data-sort-opt="price-desc">Price: High to Low</button>
+            <button type="button" class="sort-panel__item" data-sort-opt="rating">Rating: Highest first</button>
+          </div>
         </button>
         <div class="cat-view">
           <button class="cat-view__btn is-active" aria-label="Grid view">
@@ -108,14 +136,11 @@
     </div>
 
     <div class="tags">
-      <span class="tag">Sailboat <button data-tag-remove aria-label="Remove">×</button></span>
-      <span class="tag">Instant Booking <button data-tag-remove aria-label="Remove">×</button></span>
       <span class="tag">Free Cancellation <button data-tag-remove aria-label="Remove">×</button></span>
       <span class="tag">Best Rated <button data-tag-remove aria-label="Remove">×</button></span>
       <span class="tag">Jul 10–17 <button data-tag-remove aria-label="Remove">×</button></span>
       <span class="tag">4 Guests <button data-tag-remove aria-label="Remove">×</button></span>
-      <span class="tag">Under €1000/day <button data-tag-remove aria-label="Remove">×</button></span>
-      <button class="tag-clear" data-i18n="cat.filter.clearAll">Clear all</button>
+      <button class="tag-clear" data-i18n="cat.filter.clearAll" data-cat-clear-all>Clear all</button>
     </div>
   </div>
 
@@ -127,8 +152,12 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="cat-price">
-          <div class="cat-price__track"><div class="cat-price__fill"></div></div>
-          <div class="cat-price__labels"><span>USD 0</span><span>USD 2000+</span></div>
+          <div class="cat-price__track">
+            <div class="cat-price__fill" data-price-fill></div>
+            <input type="range" class="cat-price__range cat-price__range--min" min="0" max="2000" step="50" value="0" data-price-min aria-label="Minimum price">
+            <input type="range" class="cat-price__range cat-price__range--max" min="0" max="2000" step="50" value="2000" data-price-max aria-label="Maximum price">
+          </div>
+          <div class="cat-price__labels"><span data-price-min-label>USD 0</span><span data-price-max-label>USD 2000+</span></div>
         </div>
       </div>
 
@@ -138,7 +167,7 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="cat-filter-list">
-          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Instant Booking</label></li>
+          <li><label class="cat-check" data-filter-instant><span class="cat-check__box"></span>Instant Booking</label></li>
           <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Free Cancellation</label></li>
           <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Best Rated</label></li>
           <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Captain Included</label></li>
@@ -153,11 +182,11 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="cat-filter-list">
-          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>Sailboat</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Catamaran</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Motorboat</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Yacht</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>Gulet</label></li>
+          <li><label class="cat-check" data-filter-type="sailboat"><span class="cat-check__box"></span>Sailboat</label></li>
+          <li><label class="cat-check" data-filter-type="catamaran"><span class="cat-check__box"></span>Catamaran</label></li>
+          <li><label class="cat-check" data-filter-type="motorboat"><span class="cat-check__box"></span>Motorboat</label></li>
+          <li><label class="cat-check" data-filter-type="yacht"><span class="cat-check__box"></span>Yacht</label></li>
+          <li><label class="cat-check" data-filter-type="gulet"><span class="cat-check__box"></span>Gulet</label></li>
         </ul>
       </div>
 
@@ -178,18 +207,18 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="cat-filter-list">
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>1 – 2 people</label></li>
-          <li><label class="cat-check is-checked" data-filter><span class="cat-check__box"></span>3 – 6 people</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>7 – 12 people</label></li>
-          <li><label class="cat-check" data-filter><span class="cat-check__box"></span>12+ people</label></li>
+          <li><label class="cat-check" data-filter-capacity="1-2"><span class="cat-check__box"></span>1 – 2 people</label></li>
+          <li><label class="cat-check" data-filter-capacity="3-6"><span class="cat-check__box"></span>3 – 6 people</label></li>
+          <li><label class="cat-check" data-filter-capacity="7-12"><span class="cat-check__box"></span>7 – 12 people</label></li>
+          <li><label class="cat-check" data-filter-capacity="12+"><span class="cat-check__box"></span>12+ people</label></li>
         </ul>
       </div>
 
       <button class="btn btn--dark cat-side__cta" data-i18n="cat.filter.showResults">Show Results</button>
     </aside>
 
-    <div class="cat-grid">
-      <a href="boat.html" class="boat-card">
+    <div class="cat-grid" data-boat-grid>
+      <a href="boat.html" class="boat-card" data-type="yacht" data-capacity="12" data-price="275" data-rating="4.3" data-instant="true">
         <div class="boat-card__media">
           <span class="boat-card__badge">Captain Included</span>
           <img src="assets/images/boat-azimut.jpg" alt="">
@@ -207,7 +236,7 @@
         <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 275</strong></div>
       </a>
 
-      <a href="boat.html" class="boat-card">
+      <a href="boat.html" class="boat-card" data-type="motorboat" data-capacity="14" data-price="350" data-rating="4.9" data-instant="true">
         <div class="boat-card__media">
           <img src="assets/images/boat-yacht.jpg" alt="">
           <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
@@ -224,7 +253,7 @@
         <div class="boat-card__price"><span class="t-muted" data-i18n="cat.hourly">Hourly Rate from</span><strong>USD 350</strong></div>
       </a>
 
-      <a href="boat.html" class="boat-card">
+      <a href="boat.html" class="boat-card" data-type="sailboat" data-capacity="10" data-price="250" data-rating="4.1" data-instant="false">
         <div class="boat-card__media">
           <img src="assets/images/boat-sail.jpg" alt="">
           <span class="boat-card__dots"><span class="is-active"></span><span></span><span></span></span>
